@@ -8,9 +8,11 @@ velocidade = 7
 janela = pygame.display.set_mode((800, 600))
 pygame.display.set_caption('Criando jogo com Python')
 janela_aberta = True
+larguraJanela = janela.get_width()
+pxatual = 0
 
 while janela_aberta:
-    pygame.time.delay(100)
+    pygame.time.delay(1000)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -33,22 +35,15 @@ while janela_aberta:
     janela.fill((0,0,0))
     pygame.draw.circle(janela, (0, 255 ,0), (x, y), 50)
 
-    espectro_cor = range(0, 254, 2)
+
     xb = 0
     yb = 0
 
-    xc = -8
-    yc = -8
-    #Quantidade de quadrados na largura e altura da janela
-    #Quantidade de vezes que precisa criar quadrados
-    #Y é a quantidade de linhas
-    lh = 0
-    lv = 0
-    for n in range(0,75):
-        while lh <= 100:
-            pygame.draw.rect(janela, (randint(0, 255), randint(0, 255), randint(0, 255)), pygame.Rect(xb, yb, 8, 8))
-            xb += 8
+    for pxatual in range(0,800):
+        pygame.draw.rect(janela, (randint(0, 255), randint(0, 255), randint(0, 255)), pygame.Rect(xb, yb, 8, 8))
+        xb += 1
 
+        pxatual += 1
 
 
 
@@ -56,7 +51,7 @@ while janela_aberta:
 
     pygame.display.flip()
 
-pygame.quit()
+#pygame.quit()
 
 # Press the green button in the gutter to run the script.
 #if __name__ == '__main__':
